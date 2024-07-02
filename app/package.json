@@ -1,0 +1,31 @@
+{
+  "name": "jbpc-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "panda codegen",
+    "dev": "bunx --bun vite",
+    "build": "vue-tsc && bunx --bun vite build",
+    "zip": "zip -r app.zip dist",
+    "ci:build": "run-s format build zip",
+    "preview": "vite preview",
+    "format": "prettier --write \"./src/**/*.{vue,js,jsx,ts,tsx,json,css,scss,md}\""
+  },
+  "dependencies": {
+    "jwt-decode": "^4.0.0",
+    "lucide-vue-next": "^0.368.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "4",
+    "vue-sweetalert2": "^5.0.11"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.37.2",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "prettier": "^3.2.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  }
+}

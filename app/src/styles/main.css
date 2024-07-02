@@ -1,0 +1,10 @@
+@layer reset, base, tokens, recipes, utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #fff8eb;
+  background-image: url("@/assets/img/motifs/motif-bg.png");
+  background-repeat: repeat;
+}
