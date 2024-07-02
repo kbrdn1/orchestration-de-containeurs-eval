@@ -67,11 +67,6 @@ const { item } = defineProps<{ item: Config }>();
 const store = useDataTableStore();
 
 const showAction = ref<boolean>(false);
-const showEditModal = ref<boolean>(false);
-
-const openEditModal = () => {
-  showEditModal.value = true;
-};
 
 const restoreData = async () => {
   await store.restore(item.id ?? 0);
