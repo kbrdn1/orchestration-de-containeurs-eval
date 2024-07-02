@@ -1,0 +1,170 @@
+{
+  "tabs": [
+    {
+      "name": "Boucles",
+      "category": "manilles et boucles"
+    },
+    {
+      "name": "Câbles",
+      "category": "câbles",
+      "subTabs": [
+        {
+          "name": "1 tour",
+          "attribute": "1 tour"
+        },
+        {
+          "name": "2 tours",
+          "attribute": "2 tours"
+        },
+        {
+          "name": "Lien",
+          "attribute": "lien"
+        },
+        {
+          "name": "Multichaines",
+          "attribute": "multichaines"
+        },
+        {
+          "name": "Jonc",
+          "attribute": "jonc"
+        },
+        {
+          "name": "Ligne Pierres",
+          "attribute": "ligne pierres"
+        },
+        {
+          "name": "Baguette",
+          "attribute": "baguette"
+        }
+      ]
+    },
+    {
+      "name": "Embouts",
+      "ref": "colors"
+    }
+  ],
+  "model": [
+    {
+      "name": "grand-modele",
+      "sizes": [
+        {
+          "name": "1 tour",
+          "values": [14, 15, 16, 17, 18, 19, 20]
+        },
+        {
+          "name": "2 tours",
+          "values": [14, 15, 16, 17, 18, 19, 20]
+        },
+        {
+          "name": "lien",
+          "values": [14, 15, 16, 17, 18, 19, 20]
+        },
+        {
+          "name": "multichaines",
+          "values": [14, 15, 16, 17, 18, 19, 20]
+        },
+        {
+          "name": "jonc",
+          "values": [1, 2, 3]
+        },
+        {
+          "name": "ligne pierres",
+          "values": [15, 16, 17]
+        },
+        {
+          "name": "baguette",
+          "values": [16]
+        }
+      ],
+      "colors": [
+        {
+          "name": "1 tour",
+          "values": ["Or Blanc", "Or Jaune", "Or Rose"],
+          "custom": true
+        },
+        {
+          "name": "2 tours",
+          "values": ["Or Blanc", "Or Jaune", "Or Rose"],
+          "custom": true
+        },
+        {
+          "name": "lien",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "multichaines",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "jonc",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "ligne pierres",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "baguette",
+          "values": [],
+          "custom": false
+        }
+      ]
+    },
+    {
+      "name": "moyen-modele",
+      "sizes": [
+        {
+          "name": "1 tour",
+          "values": [13, 14, 15, 16, 17, 18]
+        },
+        {
+          "name": "lien",
+          "values": [13, 14, 15, 16, 17, 18]
+        },
+        {
+          "name": "multichaines",
+          "values": [13, 14, 15, 16, 17, 18]
+        },
+        {
+          "name": "jonc",
+          "values": [1, 2, 3]
+        },
+        {
+          "name": "ligne pierres",
+          "values": [14, 15, 16]
+        }
+      ],
+      "colors": [
+        {
+          "name": "1 tour",
+          "values": ["Or Blanc", "Or Jaune", "Or Rose"],
+          "custom": true
+        },
+        {
+          "name": "lien",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "multichaines",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "jonc",
+          "values": [],
+          "custom": false
+        },
+        {
+          "name": "ligne pierres",
+          "values": [],
+          "custom": false
+        }
+      ]
+    }
+  ]
+}

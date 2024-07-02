@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql" // "sqlite"
+  url      =  env("DATABASE_URL") // "file:./dev.db"
+}
+
+model Website {
+  id         Int               @id @default(autoincrement())
+  name       String
+  domain     String            @unique
+  created_at DateTime          @default(now())
+  updated_at DateTime          @updatedAt
+  deleted_at DateTime?
+  api        Apis?             @relation(fields: [apiId], references: [id])
+  apiId      Int?              @unique
+  config     ConfigToWebsite[]
+  Users      Users[]
+}
+
+model Apis {
+  id                Int       @id @default(autoincrement())
+  name              String
+  url               String    @unique
+  publicKey         String
+  privateKey        String?
+  addToCartEndpoint String?
+  created_at        DateTime  @default(now())
+  updated_at        DateTime  @updatedAt
+  deleted_at        DateTime?
+  Website           Website?
+  type              ApiType   @relation(fields: [typeId], references: [id])
+  typeId            Int
+}
+
+model ApiType {
+  id         Int       @id @default(autoincrement())
+  name       String
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  Apis       Apis[]
+}
+
+model ConfigToWebsite {
+  id        Int     @id @default(autoincrement())
+  config    Config  @relation(fields: [configId], references: [id])
+  configId  Int
+  website   Website @relation(fields: [websiteId], references: [id])
+  websiteId Int
+}
+
+model Config {
+  id         Int               @id @default(autoincrement())
+  name       String            @unique
+  value      Json
+  created_at DateTime          @default(now())
+  updated_at DateTime          @updatedAt
+  deleted_at DateTime?
+  website    ConfigToWebsite[]
+}
+
+model Admin {
+  id               Int       @id @default(autoincrement())
+  email            String    @unique
+  password         String
+  token_created_at DateTime?
+  created_at       DateTime  @default(now())
+  updated_at       DateTime  @updatedAt
+  deleted_at       DateTime?
+}
+
+model Users {
+  id         Int       @id @default(autoincrement())
+  name       String    @unique
+  token      String    @unique
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
+  website    Website   @relation(fields: [websiteId], references: [id])
+  websiteId  Int
+}

@@ -1,0 +1,33 @@
+version: '3.2'
+
+services:
+  jbpc_db:
+    image: mariadb:latest
+    volumes:
+      - ./docker/.mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: jbpc_admin
+      MYSQL_HOST: db
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: jbpc
+    ports:
+      - 3306:3306
+    container_name: db
+
+  jbpc_pma:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - jbpc_db:db
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    container_name: pma
+
+volumes:
+  mysql:
+    external: true

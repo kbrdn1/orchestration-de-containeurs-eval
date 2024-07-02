@@ -1,0 +1,180 @@
+service: jbpc-api
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-west-3
+  stage: prod
+  httpApi:
+    cors: true
+functions:
+  lambda:
+    handler: dist/index.handler
+    timeout: 30
+    events:
+      - http:
+          path: /v1
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/brand/{brand}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/configuration/{name}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/domain/verify
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # Authentication
+      - http:
+          path: /v1/auth/signin
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # - http:
+      #     path: /v1/auth/signup
+      #     method: post
+      - http:
+          path: /v1/auth/verify
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # Admin
+      - http:
+          path: /v1/admin
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/admin
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/admin/{id}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/admin/{id}
+          method: put
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/admin/{id}
+          method: delete
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # Users
+      - http:
+          path: /v1/users
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/users
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/users/{id}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/users/{id}
+          method: put
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/users/{id}
+          method: delete
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # Websites
+      - http:
+          path: /v1/websites
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/websites
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/websites/{id}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/websites/{id}
+          method: put
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/websites/{id}
+          method: delete
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # Apis
+      - http:
+          path: /v1/apis
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/apis
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/apis/{id}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/apis/{id}
+          method: put
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/apis/{id}
+          method: delete
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # Config
+      - http:
+          path: /v1/config
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/config
+          method: post
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/config/{id}
+          method: get
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/config/{id}
+          method: put
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      - http:
+          path: /v1/config/{id}
+          method: delete
+          cors:
+            origin: "https://jbpc-api-prod-lambda.s3.eu-west-3.amazonaws.com"
+      # ApiTypes work in progress
+plugins:
+  - serverless-offline
